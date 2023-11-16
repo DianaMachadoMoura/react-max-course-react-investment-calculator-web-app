@@ -1,20 +1,41 @@
 import Input from './components/Input';
 
-const UserInput = () => {
+const INPUT_FIELDS_DATA = [
+  {
+    name: 'initialInvestment',
+    id: 'initial-investment',
+    label: 'Initial Investment',
+  },
+  {
+    name: 'annualInvestment',
+    id: 'annual-investment',
+    label: 'Annual Investment',
+  },
+  {
+    name: 'expectedReturn',
+    id: 'expected-return',
+    label: 'Expected return',
+  },
+  {
+    name: 'duration',
+    id: 'duration',
+    label: 'duration',
+  },
+];
+
+const UserInput = ({ values, setValues }) => {
   return (
     <div id="user-input" className="input-group">
-      <Input
-        id="initial-investment"
-        name="Initial Investment"
-        initialValue={1000}
-      />
-      <Input
-        id="annual-investment"
-        name="Annual Investment"
-        initialValue={1200}
-      />
-      <Input id="expected-return" name="Expected return" initialValue={6} />
-      <Input id="duration" name="Duration" initialValue={10} />
+      {INPUT_FIELDS_DATA.map((input) => (
+        <Input
+          key={input.id}
+          id={input.id}
+          label={input.label}
+          name={input.name}
+          value={values[input.name]}
+          setValues={setValues}
+        />
+      ))}
     </div>
   );
 };

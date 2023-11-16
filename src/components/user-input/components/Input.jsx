@@ -1,16 +1,12 @@
-import { useState } from 'react';
-
-const Input = ({ id, name, initialValue }) => {
-  const [inputValue, setInputValue] = useState(initialValue);
-
+const Input = ({ id, label, name, value, setValues }) => {
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    setValues((prevValues) => ({ ...prevValues, [name]: +event.target.value }));
   };
 
   return (
     <div>
-      <label htmlFor={id}>{name}</label>
-      <input type="number" id={id} onChange={handleInputChange} value={inputValue}/>
+      <label htmlFor={id}>{label}</label>
+      <input type="number" id={id} onChange={handleInputChange} value={value} />
     </div>
   );
 };
