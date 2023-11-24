@@ -25,18 +25,20 @@ const INPUT_FIELDS_DATA = [
 
 const UserInput = ({ values, setValues }) => {
   return (
-    <div id="user-input" className="input-group">
-      {INPUT_FIELDS_DATA.map((input) => (
-        <Input
-          key={input.id}
-          id={input.id}
-          label={input.label}
-          name={input.name}
-          value={values[input.name]}
-          setValues={setValues}
-        />
-      ))}
-    </div>
+    <section id="user-input">
+      <div className="input-group">
+        {INPUT_FIELDS_DATA.map((input) => (
+          <Input
+            key={input.id}
+            id={input.id}
+            label={input.label}
+            name={input.name}
+            value={values[input.name]}
+            setValues={setValues}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 
